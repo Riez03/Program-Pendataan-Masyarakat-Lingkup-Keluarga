@@ -1,9 +1,6 @@
-import java.util.Scanner;
-
-public class KTP {
-    public String nik,nama,ttl,alamat,agama,kerja,warga="Indonesia";
-    public KTP next;
-    public int jmlKTP=0;
+public class KTP{
+    public String nama,ttl,alamat,nik,jk,agama,pendidikan;
+    public String kerja,status,kewarganegaraan;
     public void cetakKTP(){
         System.out.println("NIK              : "+nik);
         System.out.println("Nama             : "+nama);
@@ -11,23 +8,21 @@ public class KTP {
         System.out.println("Alamat           : "+alamat);
         System.out.println("Agama            : "+agama);
         System.out.println("Pekerjaan        : "+kerja);
-        System.out.println("Kewarganegaraan  : "+warga);
+        System.out.println("Kewarganegaraan  : "+kewarganegaraan);
     }
-    public void inputKTP(){
-        Scanner input = new Scanner(System.in);
-//        KTP ktp = new KTP();
-        System.out.print("NIK              : ");
-        nik=input.next();
-        System.out.print("Nama             : ");
-        nama=input.next();
-        System.out.print("Tempat/tgl lahir : ");
-        ttl=input.next();
-        System.out.print("Alamat           : ");
-        alamat=input.next();
-        System.out.print("Agama            : ");
-        agama=input.next();
-        System.out.print("Pekerjaan        : ");
-        kerja=input.next();
-        jmlKTP++;
+    public void outputKTP(Subjek ayah, Subjek ibu, Subjek anak){
+        if(ayah==null & ibu==null & anak==null){
+            System.out.println("Data KTP Masih Kosong");
+        }else {
+            System.out.println("Data KTP Ayah :");
+            ayah.cetakKTP();
+            System.out.println();
+            System.out.println("Data KTP Ibu :");
+            ibu.cetakKTP();
+            System.out.println();
+            System.out.println("Data KTP Anak :");
+            anak.cetakKTP();
+            System.out.println();
+        }
     }
 }
